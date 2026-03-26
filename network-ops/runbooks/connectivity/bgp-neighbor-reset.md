@@ -1,24 +1,11 @@
-Runbook: BGP Neighbor Session Reset
+# Runbook: BGP Neighbor Session Reset
 
-Metadata
-
-Details
-
-Service ID
-
-NET-BGP-02
-
-Severity
-
-P1 (Critical Path)
-
-Last Validated
-
-2026-03-26
-
-Owner
-
-Core Infrastructure Team
+| Metadata | Details |
+| :------- | :...... |
+| Service ID | NET-BGP-02 |
+| Severity | P1 (Critical Path) |
+| Last Validated | 2026-03-26 |
+| Owner | Core Infrastructure Team |
 
 1. Description
 
@@ -26,6 +13,7 @@ This runbook covers the restoration of a BGP peering session that has fallen int
 
 2. Decision Logic
 
+```mermaid
 graph TD
     A[Start: BGP Alert] --> B{Status established?}
     B -- Yes --> C[Check for Packet Loss]
@@ -36,20 +24,19 @@ graph TD
     F --> G{Fixed?}
     G -- No --> H[Escalate to ISP/Peer]
     G -- Yes --> I[Monitor for 5 Mins]
-
+```
 
 3. Restoration Procedures
 
-⚠️ Pre-Check: Verify State
+**Pre-Check: Verify State**
 
 Before resetting, confirm which neighbor is down.
 
-show ip bgp summary
-
+`show ip bgp summary`
 
 Look for neighbors where the "State/PfxRcd" column does not show a number.
 
-Procedure A: Soft Reset (Recommended)
+**Procedure A: Soft Reset (Recommended)**
 
 A "Soft Reset" tells the router to ask the neighbor for a new routing table without actually tearing down the physical connection. This is non-disruptive.
 
