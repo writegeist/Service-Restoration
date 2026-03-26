@@ -85,8 +85,3 @@ Channel: #ops-emergency on Slack
 
 
 ---
-
-### Pro-Tip for GitLab:
-Since you are using **GitLab**, once you commit this file, the "Mermaid" section will automatically turn into a beautiful, professional flowchart when you view it in your browser. It’s a great way to show off your "Docs-as-Code" skills to anyone looking at your repo.
-
-Would you like me to help you write a **README** for the root of your repository to explain ho
