@@ -30,15 +30,15 @@ graph TD
 
 **Pre-Check: Verify State**
 
-Before resetting, confirm which neighbor is down.
+- Before resetting, confirm which neighbor is down.
 
 `show ip bgp summary`
 
-Look for neighbors where the "State/PfxRcd" column does not show a number.
+- Look for neighbors where the "State/PfxRcd" column does not show a number.
 
 **Procedure A: Soft Reset (Recommended)**
 
-A "Soft Reset" tells the router to ask the neighbor for a new routing table without actually tearing down the physical connection. This is non-disruptive.
+- A "Soft Reset" tells the router to ask the neighbor for a new routing table without actually tearing down the physical connection. This is non-disruptive.
 
 ```
 # Clear inbound routing updates only
@@ -51,7 +51,7 @@ clear ip bgp 192.168.1.1 soft out
 
 **Procedure B: Hard Reset (Last Resort)**
 
-Only use this if the Soft Reset fails: this drops traffic for 30-60 seconds.
+- Only use this if the Soft Reset fails: this drops traffic for 30-60 seconds.
 
 ```
 **Warning**: This tears down the TCP session
@@ -60,7 +60,7 @@ clear ip bgp 192.168.1.1
 
 ## Verification
 
-Run the following command to ensure the session is back in the `Established` state:
+- Run the following command to ensure the session is back in the `Established` state:
 
 ```
 show ip bgp neighbors 192.168.1.1 | include state
@@ -74,6 +74,6 @@ If the session does not reach `Established` within two (2) minutes of a Hard Res
 
 - Capture the output of `show log`.
 
-_ Open a ticket with the Peer/ISP.
+- Open a ticket with the Peer/ISP.
 
-_ Notify the `#network-ops` Slack channel.
+- Notify the `#network-ops` Slack channel.
