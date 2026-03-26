@@ -1,4 +1,4 @@
-# [Runbook Title: e.g., VPN Tunnel Restoration]
+# [Runbook Title: for example, VPN Tunnel Restoration]
 
 | Metadata | Details |
 | :--- | :--- |
