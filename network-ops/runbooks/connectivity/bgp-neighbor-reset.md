@@ -7,11 +7,11 @@
 | **Last Validated** | 2026-03-26 |
 | **Owner** | Core Infrastructure Team |
 
-1. Description
+## Description
 
 This runbook covers the restoration of a BGP peering session that has fallen into an Idle or Active (non-established) state. This typically happens due to prefix limit violations or temporary path instability.
 
-2. Decision Logic
+## Decision Logic
 
 ```mermaid
 graph TD
@@ -26,7 +26,7 @@ graph TD
     G -- Yes --> I[Monitor for 5 Mins]
 ```
 
-3. Restoration Procedures
+## Restoration Procedures
 
 **Pre-Check: Verify State**
 
@@ -40,36 +40,40 @@ Look for neighbors where the "State/PfxRcd" column does not show a number.
 
 A "Soft Reset" tells the router to ask the neighbor for a new routing table without actually tearing down the physical connection. This is non-disruptive.
 
+```
 # Clear inbound routing updates only
 clear ip bgp 192.168.1.1 soft in
 
 # Clear outbound routing updates only
 clear ip bgp 192.168.1.1 soft out
 
+```
 
-Procedure B: Hard Reset (Last Resort)
+**Procedure B: Hard Reset (Last Resort)**
 
-Only use this if the Soft Reset fails. This will drop traffic for 30-60 seconds.
+Only use this if the Soft Reset fails: this drops traffic for 30-60 seconds.
 
+```
 **Warning**: This tears down the TCP session
 clear ip bgp 192.168.1.1
+```
 
+## Verification
 
-4. Verification
+Run the following command to ensure the session is back in the `Established` state:
 
-Run the following command to ensure the session is back in the Established state:
-
+```
 show ip bgp neighbors 192.168.1.1 | include state
+```
 
+**Success Criteria**: The output should read `BGP state = Established`.
 
-Success Criteria: The output should read BGP state = Established.
+## Escalation
 
-5. Escalation
+If the session does not reach `Established` within two (2) minutes of a Hard Reset:
 
-If the session does not reach Established within 2 minutes of a Hard Reset:
+- Capture the output of `show log`.
 
-Capture the output of show log.
+_ Open a ticket with the Peer/ISP.
 
-Open a ticket with the Peer/ISP.
-
-Notify the #network-ops Slack channel.
+_ Notify the `#network-ops` Slack channel.
