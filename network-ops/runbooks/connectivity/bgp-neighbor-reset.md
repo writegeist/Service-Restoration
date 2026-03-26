@@ -51,7 +51,7 @@ Procedure B: Hard Reset (Last Resort)
 
 Only use this if the Soft Reset fails. This will drop traffic for 30-60 seconds.
 
-# Warning: This tears down the TCP session
+**Warning**: This tears down the TCP session
 clear ip bgp 192.168.1.1
 
 
