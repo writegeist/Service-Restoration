@@ -49,7 +49,7 @@ If Phase 1 fails to initiate:
 1. Enter configuration mode.
 2. Shut/No-shut the tunnel interface.
 
-# Verificatin & Escalation
+# Verification & Escalation
 <!-- How we know it's fixed -->
 - Success Criteria: Tunnel status shows UP/ACTIVE. Traffic is passing across the 10.0.0.0/16 subnet.
 - Escalation: If the tunnel does not stabilize after 15 minutes, page the On-Call Security Architect via PagerDuty.
