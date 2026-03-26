@@ -35,6 +35,7 @@ graph TD
     E -- No --> F[Escalate to Senior Engineer]
     E -- Yes --> G[End: Close Ticket]
     D --> G
+```
 
 # Option A: Soft Reset (Clear SA)
 **NOTE**: If the tunnel is "stuck," clearing the Security Associations (SAs) often forces a fresh negotiation.
