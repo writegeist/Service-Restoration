@@ -24,7 +24,7 @@
 
 # Restoration Procedures
 <!-- Sample code snippet; engineer would provide usable code here -->
-WARNING: Performing a "Hard Reset" on this router will drop all active connections for approximately 2 minutes. Do not perform this during peak business hours without approval.
+**WARNING**: Performing a "Hard Reset" on this router will drop all active connections for approximately 2 minutes. Do not perform this during peak business hours without approval.
 ```
 graph TD
     A[Start Restoration] --> B{Is Link Up?}
