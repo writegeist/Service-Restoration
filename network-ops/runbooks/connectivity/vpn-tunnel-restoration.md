@@ -26,12 +26,11 @@
 <!-- Sample code snippet; engineer would provide usable code here -->
 **WARNING**: Performing a "Hard Reset" on this router will drop all active connections for approximately 2 minutes. Do not perform this during peak business hours without approval.
 
-graph TD
-    A[Start Restoration] --> B{Is Link Up?}
-    B -- No --> C[Check Physical Cable/Interface]
-    B -- Yes --> D[Check Routing Table]
-    C --> E[Restart Interface]
-    D --> F[Verify Traffic Flow]
+graph LR
+    A[Identify Issue] --> B[Consult Runbook]
+    B --> C{Resolution?}
+    C -- Yes --> D[Document & Close]
+    C -- No --> E[Escalate to Lead]
 
 # Option A: Soft Reset (Clear SA)
 **NOTE**: If the tunnel is "stuck," clearing the Security Associations (SAs) often forces a fresh negotiation.
