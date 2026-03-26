@@ -1,11 +1,11 @@
 # Runbook: BGP Neighbor Session Reset
 
 | Metadata | Details |
-| :------- | :...... |
-| Service ID | NET-BGP-02 |
-| Severity | P1 (Critical Path) |
-| Last Validated | 2026-03-26 |
-| Owner | Core Infrastructure Team |
+| :--- | :--- |
+| **Service ID** | `NET-BGP-02` |
+| **Severity** | P1 (Critical Path) |
+| **Last Validated** | 2026-03-26 |
+| **Owner** | Core Infrastructure Team |
 
 1. Description
 
